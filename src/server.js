@@ -1,25 +1,25 @@
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv");
-const path = require("path");  // ← Add this
+const path = require("path");
 const connectDB = require("./config/db");
 const equipmentRoutes = require("./routes/equipmentRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 
-dotenv.config();
+// Connect to MongoDB
 connectDB();
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+const app = express()
+const PORT = process.env.PORT || 5000
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/your_database_name'
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL || "*",
-  })
-);
+app.use(cors({
+    origin: 'https://frontent url upload here',
+    credentials: true
+}))
+
 app.use(express.json());
 
-// ✅ ADD THIS LINE - Serve static images from 'uploads' folder
+// Serve static images from 'uploads' folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.get("/api/health", (_req, res) => {
