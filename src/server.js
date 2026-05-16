@@ -10,10 +10,10 @@ connectDB();
 
 const app = express()
 const PORT = process.env.PORT || 5000
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/your_database_name'
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/rental_bookings'
 
 app.use(cors({
-    origin: 'https://frontent url upload here',
+    origin: 'https://swiftgearrentals.netlify.app',
     credentials: true
 }))
 
