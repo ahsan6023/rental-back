@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/ari_database");
+     await mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/rental_bookings");
+    console.log("MongoDB connected");
     console.log("MongoDB connected");
   } catch (error) {
     console.error("MongoDB connection failed:", error.message);
