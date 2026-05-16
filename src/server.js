@@ -20,7 +20,7 @@ app.use(cors({
 app.use(express.json());
 
 // Serve static images from 'uploads' folder
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok" });
